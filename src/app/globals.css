@@ -1,15 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700&display=swap');
+
+
+
 @import "tailwindcss";
+
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: #FFBE0D;
+  --color-secondary: #000000;
+  --color-neutrals: #141414;
+
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+
+  --text-h1: 60px;
+  --text-h3: 22px;
+  --text-h4: 20px;
+  --text-p: 16px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +32,88 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  margin: 0;
+  padding: 0;
 }
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: var(--font-heading);
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--text-h1);
+  font-weight: 500;
+}
+
+h2 {
+  font-family: var(--font-heading);
+}
+
+h3 {
+  font-size: var(--text-h3);
+  font-weight: 500;
+}
+
+h4 {
+  font-family: var(--font-heading);
+}
+
+p {
+   font-family: var(--font-heading);
+}
+
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.border-primary {
+  border-color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+.text-secondary {
+  color: var(--color-secondary);
+}
+.border-secondary {
+  border-color: var(--color-secondary);
+}
+
+
+@keyframes smooth-marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-wrapper {
+  overflow: hidden;
+  position: relative;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: inset 20px 0 20px rgba(0, 0, 0, 0.4),
+              inset -20px 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.marquee-content {
+  display: flex;
+  animation: smooth-marquee 25s linear infinite;
+  width: fit-content;
+}
+
+.marquee-inner {
+  display: flex;
+  gap: 3rem;
+}
+
